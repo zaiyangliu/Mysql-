@@ -1,0 +1,28 @@
+一、查询没有奖金，且工资小于18000的salary，last_name
+SELECT 
+  salary,
+  last_name 
+FROM
+  employees 
+WHERE commission_pct IS NULL 
+  AND salary < 18000 ;
+二、查询employees表中，job_id不为'IT' 或者工资为12000的员工信息
+SELECT 
+  * 
+FROM
+  employees 
+WHERE job_id <> 'IT' 
+  OR salary = 12000 ;
+三、查看部门departments表的结构，查询效果如下：
+DESC departments;
+#注意：desc（既可以查看表结构的信息，也可以降序排列数据）
+ 
+四、查询部门departments表中涉及到了那些位置编号
+SELECT DISTINCT 
+  location_id 
+FROM
+  departments ;
+五、经典面试题：
+试问：select * from employees; 和 select * from employees where commission_pct like '%%' and last_name like '%%'; 结果是否一样？并且说明原因
+不一样！
+如果判断的字段有null值就不一样，如果没有一样！
